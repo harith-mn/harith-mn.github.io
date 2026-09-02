@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Harith Md Nasir</title>
+    <title>harith-mn@devops:~</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
         }
 
         body {
-            background-color: #0f172a;
-            color: #f8fafc;
+            background-color: #0c0c0c;
+            color: #00ff66;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -22,108 +22,155 @@
             padding: 20px;
         }
 
-        .profile-card {
-            background-color: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 16px;
-            padding: 40px;
-            max-width: 480px;
+        .terminal-card {
+            background-color: #121212;
+            border: 1px solid #00ff66;
+            border-radius: 8px;
+            max-width: 520px;
             width: 100%;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
-            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+            overflow: hidden;
         }
 
-        .avatar {
-            width: 96px;
-            height: 96px;
-            background: linear-gradient(135deg, #3b82f6, #06b6d4);
-            border-radius: 50%;
+        .terminal-header {
+            background-color: #1e1e1e;
+            padding: 8px 12px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            font-weight: bold;
-            color: #ffffff;
-            margin: 0 auto 20px auto;
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+            border-bottom: 1px solid #333;
         }
 
-        h1 {
-            font-size: 1.75rem;
-            font-weight: 700;
+        .buttons {
+            display: flex;
+            gap: 6px;
+            margin-right: 12px;
+        }
+
+        .btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .close { background-color: #ff5f56; }
+        .minimize { background-color: #ffbd2e; }
+        .maximize { background-color: #27c93f; }
+
+        .terminal-title {
+            color: #888;
+            font-size: 0.8rem;
+        }
+
+        .terminal-body {
+            padding: 24px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .prompt {
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        .path {
+            color: #a78bfa;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .name {
+            font-size: 1.4rem;
             color: #ffffff;
-            margin-bottom: 6px;
+            font-weight: bold;
+            margin-top: 4px;
         }
 
         .role {
-            font-size: 1rem;
-            color: #38bdf8;
-            font-weight: 600;
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .section-title {
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #94a3b8;
-            margin-bottom: 12px;
-            text-align: left;
-        }
-
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 24px;
-        }
-
-        .skill-tag {
-            background-color: #334155;
             color: #e2e8f0;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid #475569;
+            margin-bottom: 8px;
         }
 
-        .fact-box {
-            background-color: #0f172a;
-            border-left: 4px solid #3b82f6;
-            padding: 16px;
-            border-radius: 0 8px 8px 0;
-            text-align: left;
-            font-size: 0.9rem;
-            line-height: 1.5;
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px 12px;
+            margin-top: 6px;
             color: #cbd5e1;
         }
 
-        .fact-box strong {
-            color: #f1f5f9;
+        .skills-grid div::before {
+            content: "-> ";
+            color: #00ff66;
+        }
+
+        .info-block {
+            color: #cbd5e1;
+            margin-top: 6px;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 15px;
+            background-color: #00ff66;
+            vertical-align: middle;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="profile-card">
-        <div class="avatar">HN</div>
-        <h1>Harith Md Nasir</h1>
-        <div class="role">Juruteknik Peralatan</div>
-
-        <div class="section-title">Kemahiran</div>
-        <div class="skills-container">
-            <span class="skill-tag">MES</span>
-            <span class="skill-tag">OEE</span>
-            <span class="skill-tag">Pareto Analysis</span>
-            <span class="skill-tag">Preventive Maintenance</span>
+    <div class="terminal-card">
+        <div class="terminal-header">
+            <div class="buttons">
+                <span class="btn close"></span>
+                <span class="btn minimize"></span>
+                <span class="btn maximize"></span>
+            </div>
+            <div class="terminal-title">bash - harith-mn@devops:~</div>
         </div>
 
-        <div class="section-title">Fakta Menarik</div>
-        <div class="fact-box">
-            <strong>Status Semasa:</strong> Kini sedang mengambil cuti kerjaya (career break) untuk mendalami bidang kejuruteraan perisian (software engineering).
+        <div class="terminal-body">
+            <!-- Profile Info -->
+            <div class="section">
+                <div><span class="prompt">harith-mn@devops</span>:<span class="path">~</span>$ whoami</div>
+                <div class="name">Harith Md Nasir</div>
+                <div class="role">[Equipment Technician]</div>
+            </div>
+
+            <!-- Skills -->
+            <div class="section">
+                <div><span class="prompt">harith-mn@devops</span>:<span class="path">~</span>$ cat skills.txt</div>
+                <div class="skills-grid">
+                    <div>MES</div>
+                    <div>OEE</div>
+                    <div>Pareto Analysis</div>
+                    <div>Preventive Maintenance</div>
+                    <div>Troubleshooting</div>
+                    <div>Safety Compliance</div>
+                </div>
+            </div>
+
+            <!-- Fakta Menarik -->
+            <div class="section">
+                <div><span class="prompt">harith-mn@devops</span>:<span class="path">~</span>$ ./get_status.sh</div>
+                <div class="info-block">
+                    [+] STATUS: On a career break, currently attending a software engineering program at 42 Kuala Lumpur.<br>
+                    [+] SIDE QUEST: Undertaking a 4-month DevOps training by Inframesia Technologies.
+                </div>
+            </div>
+
+            <!-- Active Prompt -->
+            <div>
+                <span class="prompt">harith-mn@devops</span>:<span class="path">~</span>$ <span class="cursor"></span>
+            </div>
         </div>
     </div>
 
